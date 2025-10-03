@@ -13,3 +13,9 @@ spec:
       port: 8080           # internal cluster port
       targetPort: 80    # container port
       nodePort: 30080     # external port on node
+
+
+# Expose to internet: https://medium.com/@seanlinsanity/how-to-expose-applications-running-in-kubernetes-cluster-to-public-access-65c2fa959a3b
+
+# https://stackoverflow.com/questions/75233576/exposing-service-from-a-baremetalkubeadm-kubernetes-cluster-to-outside-world/75235782#75235782
+# https://kubernetes.io/docs/tutorials/stateless-application/expose-external-ip-address/
