@@ -6,10 +6,10 @@ metadata:
 spec:
   selector:
     app: linky-app
-  type: ClusterIP
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 80            # internal cluster port
-      targetPort: 8080    # container port
-      #nodePort: 30080     # external port on node
-      name: http
+    - name: linky-http
+      protocol: TCP
+      port: 8080           # internal cluster port
+      targetPort: 80    # container port
+      nodePort: 30080     # external port on node

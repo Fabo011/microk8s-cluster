@@ -15,7 +15,7 @@ spec:
       nodeName: kube-second-raspi
       containers:
         - name: linky-app
-          image: ghcr.io/fabo011/linky:4.0.10-kube@sha256:9ba32c9cc9f124396a1c803a57b3d9cccfa21a751dc56082e191e3e31b835d3c
+          image: ghcr.io/fabo011/linky:4.0.14-kube
           ports:
             - containerPort: 8080
               name: http

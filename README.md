@@ -34,3 +34,9 @@ HTTP (your Vue app)
 TCP (transport protocol)
    ↑
 IP  (network layer)
+
+### Links
+- How to deploy Vuejs App with Kubernetes: https://blog.openreplay.com/deploying-vue-apps-to-the-cloud-with-kubernetes/
+
+### Access Linky
+- Access Linky: node-ip:NodePort-port - http://192.168.178.44:30080/
