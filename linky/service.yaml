@@ -1,0 +1,15 @@
+# Access the app via internet
+apiVersion: v1
+kind: Service
+metadata:
+  name: linky-service
+spec:
+  selector:
+    app: linky-app
+  type: NodePort          # change to Cloud-LoadBalancer if in cloud
+  ports:
+    - protocol: TCP
+      port: 80            # internal cluster port
+      targetPort: 8080    # container port
+      nodePort: 30080     # external port on node
+      name: http

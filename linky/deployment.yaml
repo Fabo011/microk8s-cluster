@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linky-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linky-app
+  template:
+    metadata:
+      labels:
+        app: linky-app
+    spec:
+      nodeName: kube-second-raspi
+      containers:
+        - name: linky-app
+          image: ghcr.io/fabo011/linky:4.0.10-kube@sha256:9ba32c9cc9f124396a1c803a57b3d9cccfa21a751dc56082e191e3e31b835d3c
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+          resources:
+             requests:
+                 cpu: "500m"
+                 memory: "128Mi"
+             limits:
+                 cpu: "1000m"
+                 memory: "256Mi"
+          env:
+            - name: VUE_APP_SUPABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: linky-secrets
+                  key: VUE_APP_SUPABASE_URL
+            - name: VUE_APP_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: linky-secrets
+                  key: VUE_APP_API_KEY
+
