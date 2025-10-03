@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: linky-app
-  type: NodePort          # change to Cloud-LoadBalancer if in cloud
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80            # internal cluster port
