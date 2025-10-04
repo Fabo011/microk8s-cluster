@@ -1,5 +1,13 @@
 # MicroK8s Cluster
 
+==**This is a microK8s multi-node on-prem Cluster**==
+
+Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu 24.04.3 LTS
+
+Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
+
+Router = FritzBox
+
 **Big Picture Diagram NodePort:**
 ![k8s big picture](./docs/bigpicture/big-picture-nodeport.png)
 
