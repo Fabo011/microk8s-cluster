@@ -1,0 +1,40 @@
+@startuml
+skinparam linetype ortho
+top to bottom direction
+
+title MicroK8s Cluster Flow with MetalLB, Ingress, HPA, DNS
+
+actor Internet
+
+rectangle "DNS Server\nresolves domain to public IP" as DNS
+rectangle "Self-Managed Linux Router\nPublic IP -> MetalLB VIP" as Router
+rectangle "MetalLB LoadBalancer\nVirtual IP across nodes" as LB
+
+package "Cluster Nodes" {
+
+  package "Node 1" {
+    rectangle "Ingress Controller (Nginx)\nHandles SSL/TLS" as Ingress1
+    rectangle "Vue App Pods (HPA)\nPod 1\nPod 2" as Pods1
+  }
+
+  package "Node 2" {
+    rectangle "Ingress Controller (Nginx)\nHandles SSL/TLS" as Ingress2
+    rectangle "Vue App Pods (HPA)\nPod 3" as Pods2
+  }
+
+}
+
+rectangle "Cluster Service (ClusterIP)\nRoutes to pods" as Service
+
+' Linear flow
+Internet --> DNS
+DNS --> Router
+Router --> LB
+LB --> Ingress1
+LB --> Ingress2
+Ingress1 --> Service
+Ingress2 --> Service
+Service --> Pods1
+Service --> Pods2
+
+@enduml
