@@ -1,18 +1,15 @@
 # MicroK8s Cluster
 
-==**This is a microK8s multi-node on-prem Cluster**==
+==**This is a microK8s multi-node bare metal on-prem Cluster**==
 
 Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu 24.04.3 LTS
 
 Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
 
-Router = FritzBox
-
-**Big Picture Diagram NodePort:**
-![k8s big picture](./docs/bigpicture/big-picture-nodeport.png)
+Router = FritzBox, pfSense
 
 **Big Picture Diagram Load Balancer Metallb:**
-![k8s big picture](./docs/bigpicture/bigpicture-loadbalancer.png)
+![k8s big picture](./docs/bigpicture/bigpicture.png)
 
 ## Setup Multi-Node MicroK8s
 https://microk8s.io/

@@ -1,0 +1,63 @@
+@startuml
+title Bare-Metal K8s Cluster with FritzBox + pfSense + MetalLB + HPA
+
+' Internet
+rectangle "Internet" as Internet
+
+' FritzBox
+rectangle "FritzBox Router" as FritzBox {
+    note right
+        - ISP gateway
+        - Forwards HTTP/HTTPS traffic to pfSense
+    end note
+}
+
+' pfSense Router / Load Balancer aware
+rectangle "pfSense Router (x86)" as pfSense {
+    note right
+        - Handles port forwarding from FritzBox
+        - Understands MetalLB VIPs
+    end note
+}
+
+' Kubernetes Cluster
+rectangle "Kubernetes Cluster (Private)" as K8s {
+
+    rectangle "MetalLB LoadBalancer VIP" as MetalLB {
+        note right
+            - Virtual IPs for services
+            - Frontend pods exposed via VIP
+        end note
+    }
+
+    rectangle "Nodes (CPU/GPU)" as Nodes {
+        rectangle "Node A" as NodeA
+        rectangle "Node B" as NodeB
+        rectangle "Node C" as NodeC
+    }
+
+    rectangle "Pods (Vue App, API, etc.)" as Pods {
+        note right
+            - HPA autoscaler:
+              scales pods across nodes automatically
+            - Nodes provide compute resources only
+              HPA chooses where to place pods
+        end note
+        rectangle "Pod 1" as Pod1
+        rectangle "Pod 2" as Pod2
+        rectangle "Pod 3" as Pod3
+    }
+}
+
+' Connections (outside of nested rectangles)
+Internet --> FritzBox : Public traffic
+FritzBox --> pfSense : Forward 80/443
+pfSense --> MetalLB : Route to VIP
+MetalLB --> Pod1
+MetalLB --> Pod2
+MetalLB --> Pod3
+NodeA <-- Pod1
+NodeB <-- Pod2
+NodeC <-- Pod3
+
+@enduml
