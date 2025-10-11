@@ -6,7 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  #ingressClassName: nginx
+  ingressClassName: nginx
   rules:
   - host: "linky.fabo011-cloud.de"
     http:
