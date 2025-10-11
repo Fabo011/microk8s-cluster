@@ -1,12 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: linky-ingress
+  name: cluster-ingress
   namespace: default
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
-  ingressClassName: nginx
+  #ingressClassName: nginx
   rules:
   - host: "linky.fabo011-cloud.de"
     http:
@@ -22,3 +22,5 @@ spec:
   - hosts:
     - "linky.fabo011-cloud.de"
     secretName: linky-tls
+
+# Can be extended by multiple services

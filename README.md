@@ -175,3 +175,8 @@ https://microk8s.io/docs/addon-metallb
 ### Links
 - How to deploy Vuejs App with Kubernetes: https://blog.openreplay.com/deploying-vue-apps-to-the-cloud-with-kubernetes/
 - Cloud Native Foundation Landscape: https://landscape.cncf.io/ 
+
+---
+
+### LoadBalancer
+microk8s enable metallb:192.168.178.50-192.168.178.60
