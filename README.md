@@ -145,6 +145,7 @@ IP  (network layer)
 
 ### External Access Linky
 - http://100.64.110.250:30080/#/
+- https://linky.fabo011-cloud.de
 
 <br>
 
