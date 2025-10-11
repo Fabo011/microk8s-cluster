@@ -180,3 +180,9 @@ https://microk8s.io/docs/addon-metallb
 
 ### LoadBalancer
 microk8s enable metallb:192.168.178.50-192.168.178.60
+
+### Reliability
+- one pod dies → Kubernetes restarts it,
+- one node dies → pods are rescheduled,
+- one path fails on a node → MetalLB keeps routing to others,
+- ISP changes IP → Cloudflare tunnel still works.
