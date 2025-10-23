@@ -178,3 +178,8 @@ microk8s enable metallb:192.168.178.50-192.168.178.60
 
 ### Cloudflare Tunnel
 Credentials saved to: /home/kube-main/.cloudflared/cert.pem
+
+---
+
+### Applications
+Linky: https://github.com/Fabo011/Linky
