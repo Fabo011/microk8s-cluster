@@ -4,7 +4,7 @@ metadata:
   name: linky-ingress
   namespace: default
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
   ingressClassName: nginx
   rules:
@@ -18,7 +18,5 @@ spec:
             name: linky-service
             port:
               number: 8080
-  tls:
-  - hosts:
-    - "linky.fabo011-cloud.de"
-    secretName: linky-tls
+
+# Can be extended by multiple services

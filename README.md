@@ -175,3 +175,19 @@ https://microk8s.io/docs/addon-metallb
 ### Links
 - How to deploy Vuejs App with Kubernetes: https://blog.openreplay.com/deploying-vue-apps-to-the-cloud-with-kubernetes/
 - Cloud Native Foundation Landscape: https://landscape.cncf.io/ 
+
+---
+
+### LoadBalancer
+microk8s enable metallb:192.168.178.50-192.168.178.60
+
+### Reliability
+- one pod dies → Kubernetes restarts it,
+- one node dies → pods are rescheduled,
+- one path fails on a node → MetalLB keeps routing to others,
+- ISP changes IP → Cloudflare tunnel still works.
+
+---
+
+### Cloudflare Tunnel
+Credentials saved to: /home/kube-main/.cloudflared/cert.pem

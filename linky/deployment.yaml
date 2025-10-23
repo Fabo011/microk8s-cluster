@@ -12,7 +12,8 @@ spec:
       labels:
         app: linky-app
     spec:
-      nodeName: kube-second-raspi
+      nodeSelector:
+        kubernetes.io/arch: arm64
       containers:
         - name: linky-app
           image: ghcr.io/fabo011/linky:4.0.14-kube
@@ -21,12 +22,12 @@ spec:
               name: http
               protocol: TCP
           resources:
-             requests:
-                 cpu: "500m"
-                 memory: "128Mi"
-             limits:
-                 cpu: "1000m"
-                 memory: "256Mi"
+            requests:
+              cpu: "500m"
+              memory: "128Mi"
+            limits:
+              cpu: "1000m"
+              memory: "256Mi"
           env:
             - name: VUE_APP_SUPABASE_URL
               valueFrom:
@@ -38,4 +39,6 @@ spec:
                 secretKeyRef:
                   name: linky-secrets
                   key: VUE_APP_API_KEY
+
+
 
