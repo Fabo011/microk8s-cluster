@@ -6,10 +6,8 @@ spec:
   selector:
     app: linky-app
   type: LoadBalancer
-  #loadBalancerIP: 192.168.178.50
   ports:
     - name: linky-http
       protocol: TCP
       port: 8080           # internal cluster port
       targetPort: 80    # container port
-      nodePort: 30080     # external port on node

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared-config
+  namespace: cloudflared
+data:
+  config.yaml: |
+    tunnel: 5b4c34c0-118a-4c37-833b-2c29b3575bc4
+    credentials-file: /etc/cloudflared/credentials.json
+
+    ingress:
+      - hostname: linky.fabo011-cloud.de
+        service: http://linky-service.default.svc.cluster.local:80
+      - service: http_status:404

@@ -186,3 +186,8 @@ microk8s enable metallb:192.168.178.50-192.168.178.60
 - one node dies → pods are rescheduled,
 - one path fails on a node → MetalLB keeps routing to others,
 - ISP changes IP → Cloudflare tunnel still works.
+
+---
+
+### Cloudflare Tunnel
+Credentials saved to: /home/kube-main/.cloudflared/cert.pem
