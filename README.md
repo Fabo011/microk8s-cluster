@@ -1,6 +1,6 @@
 # MicroK8s Cluster
 
-==**This is a microK8s multi-node bare metal on-prem Cluster**==
+**This is a microK8s multi-node bare metal on-prem Cluster**
 
 **Access:**
 
@@ -113,7 +113,7 @@ sudo snap install microk8s --classic
 
 Run join command `Response from the add-node command` --worker to tell microk8s that it is a worker node
 ```
-microk8s join 192.168.178.37:25000/token --worker
+microk8s join ip:25000/token --worker
 ```
 
 Add Permissions (Recommended by terminal)
