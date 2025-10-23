@@ -146,29 +146,14 @@ kubectl create secret generic linky-secrets \
   --from-literal=VUE_APP_API_KEY=secret2
 ```
 
+---
+
 ### Layers
-HTTP (your Vue app)
+HTTP (Vue app)
    ↑
 TCP (transport protocol)
    ↑
 IP  (network layer)
-
----
-
-
-- https://linky.fabo011-cloud.de
-
-<br>
-
-**Loadbalancer not needed because:**
-### NodePort vs Metallb LoadBalancer on FritzBox
-==**FritzBox does not allow port forwarding to a virtual IP that can float across multiple nodes, so load balancer cannot be used with FritzBox**==
-
-https://microk8s.io/docs/addon-metallb
-- NodePort exposes the service on the real node IP (192.168.178.44) on a high port (30080).
-- FritzBox and all LAN devices can reach real physical IPs, so port forwarding works without any special configuration.
-- LoadBalancer/MetalLB = virtual IP inside cluster → may not be reachable on home networks with consumer routers.
-- NodePort = real node IP → works perfectly for LAN and internet via port forwarding
 
 ---
 
@@ -180,6 +165,8 @@ https://microk8s.io/docs/addon-metallb
 
 ### LoadBalancer
 microk8s enable metallb:192.168.178.50-192.168.178.60
+
+---
 
 ### Reliability
 - one pod dies → Kubernetes restarts it,
