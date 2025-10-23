@@ -1,0 +1,53 @@
+@startuml
+title Bare-Metal K8s Cluster with Cloudflare Tunnel + MetalLB + HPA
+
+' Cloudflare Network
+rectangle "Cloudflare Global Network" as Cloudflare
+note right of Cloudflare
+    - TLS termination
+    - Public HTTPS endpoint
+    - DNS & security features
+end note
+
+' Kubernetes Cluster
+rectangle "Kubernetes Cluster (Private LAN Only)" as K8s {
+
+    rectangle "MetalLB LoadBalancer" as MetalLB
+    note right of MetalLB
+        - Internal LoadBalancer IPs only
+        - No public exposure needed anymore
+    end note
+
+    rectangle "Nodes (CPU/GPU)" as Nodes {
+        rectangle "Node A" as NodeA
+        rectangle "Node B" as NodeB
+        rectangle "Node C" as NodeC
+    }
+
+    rectangle "Pods (Vue App, API, etc.)" as Pods {
+        rectangle "Pod 1" as Pod1
+        rectangle "Pod 2" as Pod2
+        rectangle "Pod 3" as Pod3
+    }
+
+}
+
+' Cloudflared Tunnel outside K8s
+rectangle "cloudflared Tunnel (K8s)" as Tunnel
+note right of Tunnel
+    - Private outbound-only connection
+    - No ports exposed on router/firewall
+end note
+
+' Connections
+Cloudflare --> Tunnel
+Tunnel --> MetalLB
+MetalLB --> Pod1
+MetalLB --> Pod2
+MetalLB --> Pod3
+
+NodeA <-- Pod1
+NodeB <-- Pod2
+NodeC <-- Pod3
+
+@enduml
