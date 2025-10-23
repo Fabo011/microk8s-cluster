@@ -2,18 +2,31 @@
 
 ==**This is a microK8s multi-node bare metal on-prem Cluster**==
 
-Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu 24.04.3 LTS
+**Access:**
 
-Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
+Via - Cloudflare Edge
+- https://linky.fabo011-cloud.de
 
-Router = FritzBox, pfSense
+---
 
-**Big Picture Diagram Load Balancer Metallb:**
+### Nodes
+
+- Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu 24.04.3 LTS
+- Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
+- Node 3 = RaspberryPi 5 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
+
+---
+
+### Big Picture
 ![k8s big picture](./docs/bigpicture/bigpicture.png)
+
+---
 
 ## Setup Multi-Node MicroK8s
 https://microk8s.io/
-https://microk8s.io/#install-microk8s
+https://microk8s.io/#install-microK8s
+
+---
 
 ### Enable ssh on main node
 ```
@@ -32,6 +45,8 @@ source ~/.bashrc
 ```
 
 <br>
+
+---
 
 ### How to connect Lens with the Cluster on your Computer
 1. Get kube config - Execute this command on main node
@@ -140,11 +155,7 @@ IP  (network layer)
 
 ---
 
-### Internal Access Linky
-- Access Linky: node-ip:NodePort-port - http://192.168.178.44:30080/
 
-### External Access Linky
-- http://100.64.110.250:30080/#/
 - https://linky.fabo011-cloud.de
 
 <br>
@@ -158,17 +169,6 @@ https://microk8s.io/docs/addon-metallb
 - FritzBox and all LAN devices can reach real physical IPs, so port forwarding works without any special configuration.
 - LoadBalancer/MetalLB = virtual IP inside cluster → may not be reachable on home networks with consumer routers.
 - NodePort = real node IP → works perfectly for LAN and internet via port forwarding
-
----
-
-### SSL
-[Internet] 
-     |
-  FritzBox (port 80/443 → node IP NodePort)
-     |
-[Kubernetes Node IP + Ingress NodePort]
-     |
-[Nginx Ingress Controller] -- routes by domain → [linky-service NodePort] → [Vue app container port 80]
 
 ---
 
