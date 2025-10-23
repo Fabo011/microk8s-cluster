@@ -1,5 +1,3 @@
-- https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/deployment-guides/kubernetes/
-
 - Use ArgoCD: https://argo-cd.readthedocs.io/en/stable/
 
 - Use Prometheus and Grafana
