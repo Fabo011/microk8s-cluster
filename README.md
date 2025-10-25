@@ -5,7 +5,6 @@
 **Access:**
 
 Via - Cloudflare Edge
-- https://linky.fabo011-cloud.de
 
 ---
 
