@@ -1,6 +1,7 @@
 dev tun
 tls-client
 
+# 1194 is the udp VPN-Server-Port in my case. Allow port forwarding in your router.
 remote <Router-PublicIP> 1194
 
 # The "float" tells OpenVPN to accept authenticated packets from any address,
@@ -23,10 +24,13 @@ remote <Router-PublicIP> 1194
 # Repeat this option to set secondary DNS server addresses.
 
 
-# Quad9 DNS or Pihole via Quad9 
+# Quad9 DNS
+#dhcp-option DNS 9.9.9.9
+#dhcp-option DNS 149.112.112.112
 
-dhcp-option DNS 9.9.9.9
-dhcp-option DNS 149.112.112.112
+# Pihole via Quad9
+#dhcp-option DNS <raspberrypi ip>
+
 
 pull
 

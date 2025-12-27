@@ -19,6 +19,15 @@ Via - Cloudflare Edge
 ### Big Picture
 ![k8s big picture](./docs/bigpicture/bigpicture.png)
 
+### Big Picture with private home network
+MicroK8s application frontends are securely exposed via a Cloudflare tunnel. To protect the rest of the home network, which is used only by a handful of people, do the following:
+
+- VPN (OpenVPN via Synology NAS or Wireguard).
+- Pihole to block adds and malicious domains.
+- Pihole´s upstream DNS should be Quad9.
+
+![full big picture](./docs/images/home-network.png)
+
 ---
 
 ## Setup Multi-Node MicroK8s
@@ -182,3 +191,8 @@ Credentials saved to: /home/kube-main/.cloudflared/cert.pem
 
 ### Applications
 Linky: https://github.com/Fabo011/Linky
+
+---
+
+### How to setup Pihole
+https://docs.pi-hole.net/docker/
