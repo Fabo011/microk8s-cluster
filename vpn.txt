@@ -1,7 +1,7 @@
 dev tun
 tls-client
 
-remote 100.64.249.143 1194
+remote <Router-PublicIP> 1194
 
 # The "float" tells OpenVPN to accept authenticated packets from any address,
 # not only the address which was specified in the --remote option.

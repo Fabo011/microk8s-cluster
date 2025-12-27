@@ -6,10 +6,10 @@ services:
     container_name: pihole
     image: pihole/pihole:latest
     ports:
-      - "192.168.178.44:53:53/tcp"
-      - "192.168.178.44:53:53/udp"
-      - "192.168.178.44:8081:80/tcp"
-      - "192.168.178.44:443:443/tcp"
+      - "raspi-ip:53:53/tcp"
+      - "raspi-ip:53:53/udp"
+      - "raspi-ip:8081:80/tcp"
+      - "raspi-ip:443:443/tcp"
     environment:
       TZ: 'Europe/Berlin'
       FTLCONF_webserver_api_password: ${PIHOLE_API_PASSWORD}
