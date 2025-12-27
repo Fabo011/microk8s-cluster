@@ -187,6 +187,10 @@ microk8s enable metallb:192.168.178.50-192.168.178.60
 ### Cloudflare Tunnel
 Credentials saved to: /home/kube-main/.cloudflared/cert.pem
 
+**Why Cloudflare tunnel?:** Normal routers like the Fritz!Box cannot handle layer 2 load balancing. 
+The Fritz!Box can only forward to physical devices with static IP addresses. 
+To have everything on-prem, a pfSense router (https://www.pfsense.org/) would be necessary.
+
 ---
 
 ### Applications
