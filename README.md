@@ -20,9 +20,9 @@ Via - Cloudflare Edge
 ![k8s big picture](./docs/bigpicture/bigpicture.png)
 
 ### Big Picture with private home network
-MicroK8s application frontends are securely exposed via a Cloudflare tunnel. To protect the rest of the home network, which is used only by a handful of people, do the following:
+MicroK8s application frontends are securely exposed via a Cloudflare tunnel. To protect the rest of the home network, which is used only by a handful of people at home, do the following:
 
-- VPN (OpenVPN via Synology NAS or Wireguard).
+- VPN (OpenVPN via Synology NAS or Wireguard on Raspi).
 - Pihole to block adds and malicious domains.
 - Pihole´s upstream DNS should be Quad9.
 
