@@ -196,3 +196,8 @@ Linky: https://github.com/Fabo011/Linky
 
 ### How to setup Pihole
 https://docs.pi-hole.net/docker/
+
+---
+
+### Quad9 DNS
+https://quad9.net/
