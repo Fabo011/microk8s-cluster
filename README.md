@@ -194,7 +194,7 @@ To have everything on-prem, a pfSense router (https://www.pfsense.org/) would be
 ---
 
 ### Applications
-Linky: https://github.com/Fabo011/Linky
+Linky: https://github.com/Fabo011/Linky -> https://linky.fabo011-cloud.de/
 
 ---
 
