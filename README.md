@@ -205,3 +205,16 @@ https://docs.pi-hole.net/docker/
 
 ### Quad9 DNS
 https://quad9.net/
+
+---
+
+### How to install netdata
+Metrics for the nodes.
+- https://learn.netdata.cloud/docs/netdata-agent/installation/linux/
+
+```
+wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh --disable-telemetry
+```
+
+- Access: http://ip:19999
+
