@@ -5,14 +5,15 @@
 **Access:**
 
 Via - Cloudflare Edge
+Ongoing development: Own nginx...
 
 ---
 
 ### Nodes
 
-- Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu 24.04.3 LTS
-- Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
-- Node 3 = RaspberryPi 5 4gb RAM - linux (arm64) - Ubuntu 24.04 LTS
+- Node 1 = x86 Acer Computer 16gb RAM - linux (amd64) - Ubuntu Server 24.04.3 LTS
+- Node 2 = RaspberryPi 4 4gb RAM - linux (arm64) - Ubuntu Server 24.04 LTS
+- Node 3 = RaspberryPi 5 4gb RAM - linux (arm64) - Ubuntu Server 24.04 LTS
 
 ---
 
@@ -193,11 +194,6 @@ To have everything on-prem, a pfSense router (https://www.pfsense.org/) would be
 
 ---
 
-### Applications
-Linky: https://github.com/Fabo011/Linky -> https://linky.fabo011-cloud.de/
-
----
-
 ### How to setup Pihole
 https://docs.pi-hole.net/docker/
 
@@ -218,3 +214,19 @@ wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /
 
 - Access: http://ip:19999
 
+---
+
+### Applications
+Linky: https://github.com/Fabo011/Linky -> https://linky.fabo011-cloud.de/
+Vaultwarden: https://github.com/dani-garcia/vaultwarden -> https://vw.fabo011-cloud.de/
+Mealie: https://github.com/mealie-recipes/mealie/ -> https://food.fabo011-cloud.de/
+Pihole: https://github.com/pi-hole/pi-hole -> Internal
+VPN-Server: https://github.com/OpenVPN -> Internal
+
+---
+
+### Infos
+
+##### Why Vaultwarden and not Bitwarden
+Self-hosting Bitwarden still requires a license to use premium features like file uploads and YubiKey authentication.
+The backend of Vaultwarden, written in Rust, requires less RAM.
