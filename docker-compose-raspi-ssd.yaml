@@ -82,3 +82,12 @@ services:
       - SYS_NICE
     restart: unless-stopped
 
+  databag:
+    image: balzack/databag:latest
+    container_name: databag
+    restart: unless-stopped
+    ports:
+      - "7000:7000"
+    volumes:
+      - /mnt/ssd/chat:/var/lib/databag
+
