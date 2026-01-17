@@ -230,3 +230,8 @@ wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /
 ##### Why Vaultwarden and not Bitwarden
 Self-hosting Bitwarden still requires a license to use premium features like file uploads and YubiKey authentication.
 The backend of Vaultwarden, written in Rust, requires less RAM.
+
+---
+
+### Databag
+- https://github.com/balzack/databag?tab=readme-ov-file
