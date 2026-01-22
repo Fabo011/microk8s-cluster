@@ -27,7 +27,7 @@ MicroK8s application frontends are securely exposed via a Cloudflare tunnel. To 
 - Pihole to block adds and malicious domains.
 - Pihole´s upstream DNS should be Quad9.
 
-![full big picture](./docs/images/home-network.png)
+![full big picture](./docs/images/home.png)
 
 ---
 
