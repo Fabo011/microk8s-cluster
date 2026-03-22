@@ -91,3 +91,10 @@ services:
     volumes:
       - /mnt/ssd/chat:/var/lib/databag
 
+  shooter-app:
+    image: ghcr.io/fabo011/shooter-app:main-latest
+    container_name: shooter-app
+    restart: unless-stopped
+    ports:
+      - "8083:80"
+
