@@ -217,6 +217,7 @@ wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /
 ---
 
 ### Applications
+- Landingpage: https://github.com/Fabo011/fabo011-landing -> https://fabo011-cloud.de/
 - Linky: https://github.com/Fabo011/Linky -> https://linky.fabo011-cloud.de/
 - Shooter App: https://github.com/Fabo011/shooter-app -> https://shooters.fabo011-cloud.de/
 - Vaultwarden: https://github.com/dani-garcia/vaultwarden -> https://vw.fabo011-cloud.de/

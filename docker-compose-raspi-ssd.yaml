@@ -92,9 +92,16 @@ services:
       - /mnt/ssd/chat:/var/lib/databag
 
   shooter-app:
-    image: ghcr.io/fabo011/shooter-app:main-latest
+    image: ghcr.io/fabo011/shooter-app:latest
     container_name: shooter-app
     restart: unless-stopped
     ports:
       - "8083:80"
+
+  fabo011-landingpage:
+    image: ghcr.io/fabo011/fabo011-landing:latest
+    container_name: fabo011-landingpage
+    restart: unless-stopped
+    ports:
+      - "8085:80"
 
