@@ -16,7 +16,7 @@ spec:
         kubernetes.io/arch: arm64
       containers:
         - name: linky-app
-          image: ghcr.io/fabo011/linky:4.0.14-kube
+          image: ghcr.io/fabo011/linky:4.0.19-kube
           ports:
             - containerPort: 8080
               name: http
