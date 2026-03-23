@@ -4,3 +4,6 @@ resources:
   - cloudflare-tunnel
   - ingress
   - linky
+  - vaultwarden
+  - mealie
+  - fabo011-landingpage

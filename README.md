@@ -222,7 +222,7 @@ wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /
 - Shooter App: https://github.com/Fabo011/shooter-app -> https://shooters.fabo011-cloud.de/
 - Vaultwarden: https://github.com/dani-garcia/vaultwarden -> https://vw.fabo011-cloud.de/
 - Mealie: https://github.com/mealie-recipes/mealie/ -> https://food.fabo011-cloud.de/
-- Chat: https://github.com/balzack/databag -> https://chat.fabo011-cloud.de/
+- Chat: https://github.com/balzack/databag -> https://chat.fabo011-cloud.de/ - Chat will be replaced by a self-made e2e simple chat app soon. Databag is a crap.
 - Pihole: https://github.com/pi-hole/pi-hole -> Internal
 - VPN-Server: https://github.com/OpenVPN -> Internal
 

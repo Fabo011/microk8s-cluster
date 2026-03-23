@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fabo011-landingpage-service
+spec:
+  selector:
+    app: fabo011-landingpage
+  type: LoadBalancer
+  ports:
+    - name: landingpage-http
+      protocol: TCP
+      port: 80            # internal cluster port
+      targetPort: 80      # container port

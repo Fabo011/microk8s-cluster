@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fabo011-landingpage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fabo011-landingpage
+  template:
+    metadata:
+      labels:
+        app: fabo011-landingpage
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64
+      containers:
+        - name: fabo011-landingpage
+          image: ghcr.io/fabo011/fabo011-landing:latest
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "128Mi"

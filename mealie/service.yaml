@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mealie-service
+spec:
+  selector:
+    app: mealie
+  type: LoadBalancer
+  ports:
+    - name: mealie-http
+      protocol: TCP
+      port: 9000          # internal cluster port
+      targetPort: 9000    # container port
