@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cryptchat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cryptchat
+  template:
+    metadata:
+      labels:
+        app: cryptchat
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: arm64
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: cryptchat
+          image: ghcr.io/fabo011/cryptchat:latest
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cryptchat-secrets
+                  key: JWT_SECRET
+          volumeMounts:
+            - name: cryptchat-data
+              mountPath: /app/data
+      volumes:
+        - name: cryptchat-data
+          persistentVolumeClaim:
+            claimName: cryptchat-pvc

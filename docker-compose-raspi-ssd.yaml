@@ -82,15 +82,6 @@ services:
       - SYS_NICE
     restart: unless-stopped
 
-  databag:
-    image: balzack/databag:latest
-    container_name: databag
-    restart: unless-stopped
-    ports:
-      - "7000:7000"
-    volumes:
-      - /mnt/ssd/chat:/var/lib/databag
-
   shooter-app:
     image: ghcr.io/fabo011/shooter-app:latest
     container_name: shooter-app
@@ -104,4 +95,17 @@ services:
     restart: unless-stopped
     ports:
       - "8085:80"
+
+  cryptchat:
+    image: ghcr.io/fabo011/cryptchat:latest
+    container_name: cryptchat
+    restart: unless-stopped
+    user: "1000:1000"
+    ports:
+      - "3071:3000"
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET}
+    volumes:
+      - /mnt/ssd/chat:/app/data
 
