@@ -1,0 +1,37 @@
+services:
+  duckduckgo:
+    image: mcp/duckduckgo:latest
+    container_name: mcp-duckduckgo
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  wikipedia:
+    image: mcp/wikipedia-mcp:latest
+    container_name: mcp-wikipedia
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  github:
+    image: ghcr.io/github/github-mcp-server:latest
+    container_name: mcp-github
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${GITHUB_PERSONAL_ACCESS_TOKEN}
+
+  context7:
+    image: mcp/context7:latest
+    container_name: mcp-context7
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  sequentialthinking:
+    image: mcp/sequentialthinking:latest
+    container_name: mcp-sequential-thinking
+    restart: unless-stopped
+    stdin_open: true
+    tty: true

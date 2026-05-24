@@ -238,3 +238,20 @@ The backend of Vaultwarden, written in Rust, requires less RAM.
 
 ### How to create JWT Secret
 openssl rand -hex 32
+
+### Start MCP Servers
+**Works locally with `stdio mode`**
+
+```
+docker compose -f docker-compose-mcp-servers.yaml up -d
+```
+
+> Rename mcp-example.json to mcp.json and add your GitHub Personal Access Token to the environment variable in the docker-compose file. This will allow you to use the GitHub MCP server for testing and development purposes.
+
+| MCP Server | Description | Link |
+|------------|-------------|------|
+| Sequential Thinking MCP Server | Thinking step-by-step through structured reasoning, branching, and revising thoughts for complex problem solving. | https://github.com/modelcontextprotocol/servers/blob/main/src/sequentialthinking/README.md |
+| Context7 | Provides up-to-date, version-specific documentation and code examples directly into AI coding assistants. | https://context7.com/docs/overview |
+| GitHub MCP Server | Enables interaction with GitHub repositories including code, issues, and workflows. | https://github.com/github/github-mcp-server |
+| DuckDuckGo MCP Server | Allows web search to retrieve current and relevant information from DuckDuckGo. | https://github.com/nickclyde/duckduckgo-mcp-server |
+| Wikipedia MCP Server | Provides access to Wikipedia articles for factual lookup and knowledge retrieval. | https://github.com/Rudra-ravi/wikipedia-mcp |
