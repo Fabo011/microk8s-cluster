@@ -1,0 +1,13 @@
+id: local-ml-pipeline
+namespace: fabo011.pipelines
+
+tasks:
+  - id: test-task
+    type: io.kestra.plugin.scripts.python.Commands
+    namespaceFiles:
+      enabled: true
+    beforeCommands:
+      - pip install pandas
+      - pip install requests
+    commands:
+      - python src/extract_mall_data.py
