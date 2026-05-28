@@ -1,0 +1,66 @@
+services:
+  duckduckgo:
+    image: mcp/duckduckgo:latest
+    container_name: mcp-duckduckgo
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  wikipedia:
+    image: mcp/wikipedia-mcp:latest
+    container_name: mcp-wikipedia
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+  github:
+    image: ghcr.io/github/github-mcp-server:latest
+    container_name: mcp-github
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${GITHUB_PERSONAL_ACCESS_TOKEN}
+
+  #context7:
+  #  image: mcp/context7:latest
+  #  container_name: mcp-context7
+  #  restart: unless-stopped
+  #  stdin_open: true
+  #  tty: true
+#
+  #sequentialthinking:
+  #  image: mcp/sequentialthinking:latest
+  #  container_name: mcp-sequential-thinking
+  #  restart: unless-stopped
+  #  stdin_open: true
+  #  tty: true
+
+  kestra:
+    image: kestra/kestra:latest
+    container_name: kestra
+    pull_policy: always
+    user: "root"
+    ports:
+      - "8080:8080"
+    command: server local
+    volumes:
+      - kestra_data:/app/storage
+      - kestra_db:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp:/tmp
+    environment:
+      KESTRA_CONFIGURATION: |
+        kestra:
+          server:
+            basic-auth:
+              enabled: false
+          repository:
+            type: h2
+          storage:
+            type: local
+            local:
+              base-path: "/app/storage"
+volumes:
+  kestra_data:
+  kestra_db:
