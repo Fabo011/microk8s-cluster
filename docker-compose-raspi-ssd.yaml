@@ -43,6 +43,7 @@ services:
     restart: unless-stopped
     environment:
        DOMAIN: "https://vw.fabo011-cloud.de"
+       SIGNUPS_ALLOWED: "false"
     volumes:
         - /mnt/ssd/vw-data:/data
     ports:
@@ -57,7 +58,7 @@ services:
     volumes:
       - /mnt/ssd/mealie-data:/app/data
     environment:
-      - ALLOW_SIGNUP=true
+      - ALLOW_SIGNUP=false
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Berlin
