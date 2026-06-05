@@ -96,6 +96,16 @@ services:
     ports:
       - "8085:80"
 
+  notes:
+      image: triliumnext/trilium:latest
+      container_name: notes
+      restart: unless-stopped
+      platform: linux/arm64
+      ports:
+        - "8080:8080"
+      volumes:
+        - /mnt/ssd/notes:/home/node/trilium-data
+
   cryptchat:
     image: ghcr.io/fabo011/cryptchat:latest
     container_name: cryptchat
